@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect - Sosial Media</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial,sans-serif}
+body{background:#f0f2f5;color:#050505;padding-top:70px}
+a{text-decoration:none;color:inherit}
+nav{background:#fff;height:56px;display:flex;justify-content:space-between;align-items:center;padding:0 16px;position:fixed;top:0;left:0;right:0;box-shadow:0 2px 4px rgba(0,0,0,.1);z-index:100}
+.logo{display:flex;align-items:center;gap:10px}
+.logo i{font-size:40px;color:#1877F2}
+.search{background:#f0f2f5;border:none;padding:10px 14px;border-radius:20px;width:220px;outline:none}
+.nav-center{display:flex;gap:5px}
+.nav-center a{padding:10px 35px;border-radius:8px;font-size:22px;color:#65676b}
+.nav-center a:hover,.nav-center a.active{background:#f0f2f5;color:#1877F2}
+.nav-right{display:flex;align-items:center;gap:10px}
+.icon-btn{width:40px;height:40px;background:#e4e6eb;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;cursor:pointer}
+.container{max-width:1400px;margin:auto;display:grid;grid-template-columns:280px 1fr 320px;gap:20px;padding:20px}
+.sidebar{position:sticky;top:76px;height:fit-content}
+.menu-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;cursor:pointer;font-weight:500}
+.menu-item:hover{background:#e4e6eb}
+.menu-item i{font-size:22px;color:#1877F2;width:30px;text-align:center}
+.menu-item img{width:36px;height:36px;border-radius:50%}
+.feed{max-width:680px;margin:auto;width:100%}
+.stories{display:flex;gap:10px;margin-bottom:20px;overflow-x:auto}
+.story{width:112px;height:200px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;flex-shrink:0;background:#000}
+.story img.bg{width:100%;height:100%;object-fit:cover;opacity:.9}
+.story img.profile{width:40px;height:40px;border-radius:50%;border:4px solid #1877F2;position:absolute;top:10px;left:10px}
+.story span{position:absolute;bottom:10px;left:10px;color:#fff;font-weight:600;font-size:13px;text-shadow:0 1px 3px #000}
+.card{background:#fff;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.1);padding:16px;margin-bottom:20px}
+.create-post-top{display:flex;gap:10px}
+.create-post-top input{flex:1;background:#f0f2f5;border:none;border-radius:20px;padding:0 16px;outline:none}
+hr{margin:14px 0;border:.5px solid #e4e6eb}
+.actions,.post-actions{display:flex;justify-content:space-around}
+.actions div,.post-actions div{cursor:pointer;padding:8px;border-radius:6px;font-weight:600;color:#65676b;font-size:15px}
+.actions div:hover,.post-actions div:hover{background:#f0f2f5}
+.post-head{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.post-head b{cursor:pointer}
+.post-head small{color:#65676b}
+.post-text{margin-bottom:12px;line-height:1.4}
+.post-img{width:100%;border-radius:6px;margin-bottom:10px}
+.liked{color:#1877F2 !important}
+.comments{display:none;margin-top:12px;border-top:1px solid #e4e6eb;padding-top:12px}
+.comment{display:flex;gap:8px;margin-bottom:8px}
+.comment-body{background:#f0f2f5;padding:8px 12px;border-radius:18px}
+.comment-input{display:flex;gap:8px;margin-top:10px}
+.comment-input input{flex:1;background:#f0f2f5;border:none;padding:9px 14px;border-radius:20px;outline:none}
+.btn-post{background:#1877F2;color:#fff;border:none;padding:10px 20px;border-radius:6px;font-weight:bold;cursor:pointer;width:100%;margin-top:10px}
+.contact{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;cursor:pointer}
+.contact:hover{background:#e4e6eb}
+.online{position:relative}
+.online::after{content:'';width:10px;height:10px;background:#31a24c;border:2px solid #fff;border-radius:50%;position:absolute;bottom:2px;right:2px}
+h4{color:#65676b;margin:10px 0}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#242526;color:#fff;padding:12px 20px;border-radius:8px;display:none;z-index:999}
+@media(max-width:1100px){.container{grid-template-columns:1fr}.sidebar,.right{display:none}.nav-center{display:none}.search{width:150px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <i class="fab fa-facebook"></i>
+    <input class="search" id="search" placeholder="Cari postingan...">
+  </div>
+  <div class="nav-center">
+    <a href="#" class="active"><i class="fas fa-home"></i></a>
+    <a href="#"><i class="fas fa-tv"></i></a>
+    <a href="#"><i class="fas fa-store"></i></a>
+    <a href="#"><i class="fas fa-users"></i></a>
+    <a href="#"><i class="fas fa-gamepad"></i></a>
+  </div>
+  <div class="nav-right">
+    <div class="icon-btn"><i class="fab fa-facebook-messenger"></i></div>
+    <div class="icon-btn"><i class="fas fa-bell"></i></div>
+    <img class="avatar" src="https://i.pravatar.cc/150?img=12">
+  </div>
+</nav>
+
+<div class="container">
+  <!-- SIDEBAR KIRI -->
+  <aside class="sidebar">
+    <div class="menu-item"><img src="https://i.pravatar.cc/150?img=12"> Budi Santoso</div>
+    <div class="menu-item"><i class="fas fa-user-friends"></i> Teman</div>
+    <div class="menu-item"><i class="fas fa-clock"></i> Kenangan</div>
+    <div class="menu-item"><i class="fas fa-bookmark"></i> Tersimpan</div>
+    <div class="menu-item"><i class="fas fa-users"></i> Grup</div>
+    <div class="menu-item"><i class="fas fa-tv"></i> Video</div>
+    <div class="menu-item"><i class="fas fa-store"></i> Marketplace</div>
+    <div class="menu-item"><i class="fas fa-newspaper"></i> Kabar</div>
+  </aside>
+
+  <!-- FEED -->
+  <main class="feed">
+    <div class="stories" id="stories"></div>
+
+    <div class="card">
+      <div class="create-post-top">
+        <img class="avatar" src="https://i.pravatar.cc/150?img=12">
+        <input id="postInput" placeholder="Apa yang Anda pikirkan, Budi?">
+      </div>
+      <button class="btn-post" onclick="createPost()">Posting</button>
+      <hr>
+      <div class="actions">
+        <div style="color:#f02849"><i class="fas fa-video"></i> Video Langsung</div>
+        <div style="color:#45bd62"><i class="fas fa-image"></i> Foto/Video</div>
+        <div style="color:#f7b928"><i class="far fa-smile"></i> Perasaan</div>
+      </div>
+    </div>
+
+    <div id="feed"></div>
+  </main>
+
+  <!-- SIDEBAR KANAN -->
+  <aside class="sidebar right">
+    <h4>Kontak</h4>
+    <div id="contacts"></div>
+  </aside>
+</div>
+
+<div id="toast">Postingan dibagikan!</div>
+
+<script>
+let posts = [
+  {id:1,user:"Siti Rahma",avatar:"https://i.pravatar.cc/150?img=47",time:"2 jam",text:"Halo semua! Hari ini jalan-jalan ke pantai, pemandangannya indah banget 🌊✨",image:"https://picsum.photos/680/400?random=1",likes:24,liked:false,comments:[{user:"Andi",text:"Keren banget!"}]},
+  {id:2,user:"Andi Pratama",avatar:"https://i.pravatar.cc/150?img=33",time:"5 jam",text:"Alhamdulillah project website pertama saya selesai! Terima kasih buat semua yang sudah support 🙏💻",image:"https://picsum.photos/680/400?random=2",likes:56,liked:false,comments:[]},
+  {id:3,user:"Dewi Lestari",avatar:"https://i.pravatar.cc/150?img=44",time:"Kemarin",text:"Resep baru hari ini berhasil! Ada yang mau coba? 🍰",image:"",likes:12,liked:false,comments:[]}
+];
+
+const storiesData = [
+  {name:"Buat Story",img:"https://i.pravatar.cc/150?img=12",bg:"https://picsum.photos/200/300?random=10"},
+  {name:"Siti Rahma",img:"https://i.pravatar.cc/150?img=47",bg:"https://picsum.photos/200/300?random=11"},
+  {name:"Andi Pratama",img:"https://i.pravatar.cc/150?img=33",bg:"https://picsum.photos/200/300?random=12"},
+  {name:"Dewi Lestari",img:"https://i.pravatar.cc/150?img=44",bg:"https://picsum.photos/200/300?random=13"},
+  {name:"Rudi Hartono",img:"https://i.pravatar.cc/150?img=59",bg:"https://picsum.photos/200/300?random=14"},
+];
+
+const contactsData = ["Siti Rahma","Andi Pratama","Dewi Lestari","Rudi Hartono","Maya Putri","Joko Susilo"];
+
+document.getElementById('stories').innerHTML = storiesData.map(s=>`
+  <div class="story"><img class="bg" src="${s.bg}"><img class="profile" src="${s.img}"><span>${s.name}</span></div>`).join('');
+
+document.getElementById('contacts').innerHTML = contactsData.map((c,i)=>`
+  <div class="contact"><div class="online"><img class="avatar" src="https://i.pravatar.cc/150?img=${i+20}"></div> ${c}</div>`).join('');
+
+function render(){
+  document.getElementById('feed').innerHTML = posts.map(p=>`
+  <div class="card">
+    <div class="post-head">
+      <img class="avatar" src="${p.avatar}">
+      <div><b>${p.user}</b><br><small>${p.time} · <i class="fas fa-globe-asia"></i></small></div>
+    </div>
+    <p class="post-text">${p.text}</p>
+    ${p.image?<img class="post-img" src="${p.image}">:''}
+    <div style="color:#65676b;font-size:14px">👍 ${p.likes} &nbsp;·&nbsp; ${p.comments.length} Komentar</div>
+    <hr>
+    <div class="post-actions">
+      <div class="${p.liked?'liked':''}" onclick="toggleLike(${p.id})"><i class="far fa-thumbs-up"></i> Suka</div>
+      <div onclick="toggleComments(${p.id})"><i class="far fa-comment"></i> Komentar</div>
+      <div onclick="sharePost()"><i class="fas fa-share"></i> Bagikan</div>
+    </div>
+    <div class="comments" id="comments-${p.id}">
+      ${p.comments.map(c=><div class="comment"><img class="avatar" style="width:32px;height:32px" src="https://i.pravatar.cc/150?img=12"><div class="comment-body"><b>${c.user}</b><br>${c.text}</div></div>).join('')}
+      <div class="comment-input">
+        <img class="avatar" style="width:32px;height:32px" src="https://i.pravatar.cc/150?img=12">
+        <input placeholder="Tulis komentar..." onkeypress="if(event.key==='Enter') addComment(${p.id},this)">
+      </div>
+    </div>
+  </div>`).join('');
+}
+
+function createPost(){
+  const input=document.getElementById('postInput');
+  if(!input.value.trim()) return alert("Tulis sesuatu dulu!");
+  posts.unshift({id:Date.now(),user:"Budi Santoso",avatar:"https://i.pravatar.cc/150?img=12",time:"Baru saja",text:input.value,image:"",likes:0,liked:false,comments:[]});
+  input.value=""; render();
+}
+function toggleLike(id){
+  const p=posts.find(x=>x.id===id);
+  p.liked=!p.liked; p.likes+=p.liked?1:-1; render();
+}
+function toggleComments(id){
+  const el=document.getElementById(comments-${id});
+  el.style.display=el.style.display==='block'?'none':'block';
+}
+function addComment(id,input){
+  const p=posts.find(x=>x.id===id);
+  p.comments.push({user:"Budi Santoso",text:input.value});
+  render(); toggleComments(id);
+}
+function sharePost(){
+  const t=document.getElementById('toast'); t.style.display='block';
+  setTimeout(()=>t.style.display='none',2000);
+}
+document.getElementById('search').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();
+  const filtered=posts.filter(p=>p.text.toLowerCase().includes(q)||p.user.toLowerCase().includes(q));
+  const old=posts; posts=filtered; render(); posts=old;
+});
+
+render();
+</script>
+</body>
+</html>
