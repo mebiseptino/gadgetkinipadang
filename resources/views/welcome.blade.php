@@ -88,7 +88,7 @@ height: 10px;
     <div class="mt-8 relative">
       <div class="bg-[#0f1115] rounded-2xl p-3 border border-[#ff8a2a]/20">
         <div class="flex items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" class="w-14 h-14 rounded-full object-cover">
+          <<img src="/images/uda-gadang.jpg" class="w-14 h-14 rounded-full object-cover border-2 border-[#ff8a2a]"
           <div>
             <div class="font-bold text-sm">Uni Gadget</div>
             <div class="text-xs text-zinc-400">Best Seller • iPhone 15 Padang</div>
