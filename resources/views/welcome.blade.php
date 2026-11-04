@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GADANG.CODE V3 - Uda AI</title>
+<title>GADANG.CODE V3</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:sans-serif;background:#0B1020;color:#fff}
@@ -29,11 +29,11 @@ body{font-family:sans-serif;background:#0B1020;color:#fff}
 <div class="h1">Halo, Uda!<span>Cari gadget</span><b>apa hari ko?</b></div>
 <p style="font-size:13px;opacity:0.6;margin:16px 0">Uda AI ngerti bahasa Minang.</p>
 <div class="uda-wrap">
-<img src="/images/uda-gadang.jpg" alt="Uda Gadang" onerror="this.src='https://via.placeholder.com/400x400/1A2B5A/FFB800?text=Uda+Gadang'">
+<img src="/images/uda-gadang.jpg" alt="Uda Gadang">
 <div class="uda-badge">● Uda Gadang • AI Padang • V3</div>
 </div>
 </div>
-<div class="card"><h2>Teman AI untuk Gadget & Kode di Padang</h2><p style="font-size:12px;opacity:0.6;margin-top:10px">Deployment ACTIVE • V3 Uda AI</p></div>
+<div class="card"><h2>Teman AI untuk Gadget & Kode di Padang</h2><p style="font-size:12px;opacity:0.6;margin-top:10px">Deployment ACTIVE • V3 Uda AI • Image 408KB</p></div>
 </div>
 </body>
 </html>
